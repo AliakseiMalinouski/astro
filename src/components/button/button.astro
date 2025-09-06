@@ -1,0 +1,26 @@
+---
+    import type { Props } from './button.types';
+
+    const {
+        text,
+    } = Astro.props;
+
+---
+
+<button class="button">
+    {text}
+</button>
+
+<style>
+    .button {
+        border: none;
+        color: gray;
+        color: white;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+</style>
+
+<script is:inline>
+    document.querySelector('.button').addEventListener('click', () => console.log('clicked'))
+</script>

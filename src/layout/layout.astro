@@ -1,0 +1,36 @@
+---
+import type { JSX } from 'astro/jsx-runtime';
+
+    type Props = {
+        title: string;
+        children: JSX.Element;
+    }
+
+    const {
+        title,
+    } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<h1>{title}</h1>
+		<section class="layout-section">
+            <slot/>
+        </section>
+	</body>
+</html>
+
+<style >
+	.layout-section {
+		width: 80%;
+		min-height: 200px;
+		border: 1px solid black;
+	}
+</style>

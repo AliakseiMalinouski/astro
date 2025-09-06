@@ -1,0 +1,22 @@
+---
+
+    import type { Props } from './user_panel.types';
+
+    const { user, isAdmin } = Astro.props;
+---
+
+<h3 class="user">{user}</h3>
+{isAdmin && (
+    <div>
+        {user} is an Admin
+    </div>
+)}
+
+<style>
+    .user {
+        color: red;
+    }
+</style>
+
+
+

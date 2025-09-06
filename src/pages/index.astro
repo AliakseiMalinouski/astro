@@ -1,0 +1,10 @@
+---
+import Layout from "../layout/layout.astro";
+import Button from "../components/button/button.astro";
+import UserPanel from "../components/user_panel/user_panel.astro";
+---
+
+<Layout title="Entry">
+	<Button text="click" />
+	<UserPanel user={'user'} isAdmin={true} />
+</Layout>

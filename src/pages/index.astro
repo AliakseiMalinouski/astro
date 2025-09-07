@@ -2,9 +2,14 @@
 import Layout from "../layout/layout.astro";
 import Button from "../components/button/button.astro";
 import UserPanel from "../components/user_panel/user_panel.astro";
+import { Image } from "../components/image";
 ---
 
 <Layout title="Entry">
 	<Button text="click" />
+	<Image
+		client:visible
+		src="https://miro.medium.com/v2/resize:fit:1200/1*oDgPd01FKboRjQA19CZYIw.png"
+	/>
 	<UserPanel user={'user'} isAdmin={true} />
 </Layout>

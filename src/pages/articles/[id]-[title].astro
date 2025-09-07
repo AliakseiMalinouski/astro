@@ -1,0 +1,39 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from '../../layout/layout.astro';
+
+type Props = {
+    item: {
+        id: string;
+        title: string;
+        content: string;
+    }
+}
+
+export const getStaticPaths = (() => {
+    
+    const data = [
+        {
+            id: '1',
+            title: 'some title',
+            content: 'come content'
+        }
+    ]
+
+    return data.map((item) => ({
+        params: { id: item.id, title: item.title },
+        props: {
+            id: item.id,
+            item,
+        },
+    }));  
+}) satisfies GetStaticPaths;
+
+const { item } = Astro.props;
+const { id, title } = Astro.params;
+
+---
+
+<Layout title={title}>
+    {item.content} {id}
+</Layout>

@@ -1,5 +1,6 @@
 ---
 import type { JSX } from 'astro/jsx-runtime';
+import ListItem from '../components/list_item/list_item.astro';
 
     type Props = {
         title: string;
@@ -9,6 +10,22 @@ import type { JSX } from 'astro/jsx-runtime';
     const {
         title,
     } = Astro.props;
+
+
+const items = [
+	{
+		id: 1,
+		path: '/',
+		title: 'Root',
+	},
+	{
+		id: 2,
+		path: '/about',
+		title: 'About',
+	}
+]
+
+const [_, currentPath] = Astro.url.pathname.split('/');
 ---
 
 <html lang="en">
@@ -21,6 +38,14 @@ import type { JSX } from 'astro/jsx-runtime';
 	</head>
 	<body>
 		<h1>{title}</h1>
+		{items.map((item) => (
+			<ListItem
+				url={item.path}
+				title={item.title}
+				description={item.title}
+				selected={item.path === currentPath}
+			/>
+		))}
 		<section class="layout-section">
             <slot/>
         </section>

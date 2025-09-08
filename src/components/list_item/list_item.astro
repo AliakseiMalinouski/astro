@@ -1,0 +1,38 @@
+---
+
+type Props = {
+    url?: string;
+    title: string;
+    selected: boolean;
+    description: string;
+}
+
+const {
+    url,
+    title,
+    selected,
+    description,
+} = Astro.props;
+
+const INITIAL_LIST_ITEM_TEXT_COLOR = '#000';
+
+---
+
+<li class:list={['list-item', { selected }]}>
+    <h3>{title}</h3>
+    <p>{description}</p>
+    {url && (
+        <a href={url}>go to {title}</a>
+    )}
+</li>
+
+
+<style
+    define:vars={{
+        textColor: INITIAL_LIST_ITEM_TEXT_COLOR
+    }}
+>
+    .list-item {
+        color: var(--textColor),
+    }
+</style>

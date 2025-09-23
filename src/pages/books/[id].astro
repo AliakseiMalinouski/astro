@@ -1,0 +1,25 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+
+import Layout from "../../layout/layout.astro";
+
+export const getStaticPaths = (async () => {
+    
+    const books = await getCollection('books');
+
+    return books.map((entry) => ({
+        params: { id: entry.id.replace(/\.ya?ml$/, "") },
+        props: { entry }
+    }));
+}) satisfies GetStaticPaths;
+
+const { entry } = Astro.props; 
+// const { Content  } = await entry.render();
+
+---
+
+<Layout title='Book article'>
+    <!-- <Content/> -->
+     <div></div>
+</Layout>

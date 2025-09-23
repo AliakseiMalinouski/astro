@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+import { Debug } from "astro:components";
+
+import Layout from "../layout/layout.astro";
+
+const books = await getCollection('books');
+---
+
+<Layout
+    title="books"
+    >
+    <Debug {books} />
+    <div>
+        {books.map(({ data }) => (
+            <div>
+                <h3>
+                    {data.title}
+                </h3>
+                <p>
+                    {data.description}
+                </p>
+            </div>
+        ))}
+    </div>
+</Layout>

@@ -14,16 +14,16 @@ import { Images } from '../components/images'
  * const optimizedImageUrl = `url${optimizedImage.src}`; - can be set to styles vars attr
  */
 
-const images = await Astro.glob('./path/to/images');
+// const images = await Astro.glob('./path/to/images');
 
-const preparedImages = images.map((image) => ({
-	data: image.default,
-	alt: 'I am some image',
-}));
+// const preparedImages = images.map((image) => ({
+// 	data: image.default,
+// 	alt: 'I am some image',
+// }));
 ---
 
 <Layout title="Entry">
 	<Button text="click" />
-	<Images images={preparedImages} />
+	<!-- <Images images={preparedImages} /> -->
 	<UserPanel user={'user'} isAdmin={true} />
 </Layout>
